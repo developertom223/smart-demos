@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<input type="text" name="" id="" value="" />
+		<script type="text/javascript">
+			//这是方法
+			function onKeybord(callback) {
+				var normalsize = window.outerHeight;
+				var old = window.onresize;
+				window.onresize = function() {
+					if (typeof old == "function") {
+						old();
+					}
+					if (window.innerHeight < normalsize) {
+						callback(true);
+					} else {
+						callback(false);
+					}
+				}
+			}
+			//这是使用方法
+			onKeybord(function(state) {
+				//此处可添加对input的focus额外条件,我觉得不添加也行
+				if(state){
+					alert("键盘出来了");
+				}else{
+					alert("键盘没有了");
+				}
+			});
+		</script>
+	</body>
+
+</html>

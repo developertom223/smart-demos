@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>css3小效果集合</title>
+<style type="text/css">
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);  /*当用户点击iOS的Safari浏览器中的链接或JavaScript的可点击的元素时，覆盖显示的高亮颜色。此处用来点击的时候背景去掉*/
+  -webkit-touch-callout: none; /*当你触摸并按住触摸目标时候，禁止或显示系统默认菜单。*/
+}
+.section{
+  padding:0 50px 50px;
+  clear:both;
+  position: relative;
+}
+/*CSS3鼠标滑过渐变颜色旋转图标特效 start*/
+  #order_nav .list li {
+    width: 116px; 
+    height: 116px; 
+    float: left; 
+    border-radius: 50%; 
+    position: relative;
+    margin: 80px 20px; 
+    cursor: pointer; 
+
+    -webkit-transition: .4s all; 
+    -moz-transition: .4s all; 
+    -ms-transition: .4s all; 
+    transition: .4s all; 
+  }
+  #order_nav .list li .icon { 
+    width: 102px; 
+    height: 102px; 
+    position: absolute; 
+    left: 7px; 
+    top: 7px; 
+    font-size: 46px;
+    font-family: "微软雅黑";
+    text-align: center;
+    line-height: 102px;
+    border-radius: 50%; 
+    z-index: 1; 
+
+    background: #424242; 
+    color:#fff;
+    -webkit-transition: .4s all; 
+    -moz-transition: .4s all; 
+    -ms-transition: .4s all; 
+    transition: .4s all; 
+  }
+  #order_nav .list li.on { 
+    background: rgba(0,0,0,.5); 
+  }
+  #order_nav .list li.on .icon {
+    background: #0ff; 
+    color:#666;
+    -webkit-transform: rotate(360deg); 
+    -moz-transform: rotate(360deg); 
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg); 
+  }
+/*CSS3鼠标滑过渐变颜色旋转图标特效 end*/
+/*CSS3模拟复选框 start*/
+  .model-checkbox{
+    display: inline-block;
+    width:52px;
+    height:32px;
+    border-radius: 16px;
+    position: relative;
+      cursor: pointer;
+      /*box-sizing:border-box;/*/
+  }
+  .model-checkbox .checkbox{
+    width:52px;
+    height:32px;
+    border-radius: 16px;
+      background: #e5e5e5;
+  }
+  .model-checkbox .checkbox:before{
+    content:'';
+    width:48px;
+    height: 28px;
+    background: #fff;
+    position: absolute;
+    top:2px;
+    left:2px;
+    border-radius: 16px;
+    -webkit-transition-duration: 300ms;
+      transition-duration: 300ms;
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+  }
+  .model-checkbox .checkbox:after{
+    content:'';
+    width:28px;
+    height: 28px;
+    background: #fff;
+    position: absolute;
+    top:2px;
+    left:2px;
+    border-radius: 16px;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      -webkit-transform: translateX(0px);
+      -ms-transform: translateX(0px);
+      transform: translateX(0px);
+      -webkit-transition-duration: 300ms;
+      transition-duration: 300ms;
+  }
+  .model-checkbox input[type="checkbox"] {
+    display: none;
+  }
+  .model-checkbox input[type="checkbox"]:checked + .checkbox {
+    background: #4cd964;
+  }
+  .model-checkbox input[type="checkbox"]:checked + .checkbox:before {
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+    transform: scale(0);
+  }
+  .model-checkbox input[type="checkbox"]:checked + .checkbox:after {
+    -webkit-transform: translateX(22px);
+    -ms-transform: translateX(22px);
+    transform: translateX(22px);
+  }
+/*CSS3模拟复选框 end*/
+/*CSS3 box-sizing的认识 start*/
+  .boxsizing{
+    padding:0 1px;
+  }
+  .boxsizing li{
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; /* Firefox */
+    -webkit-box-sizing:border-box; /* Safari */
+    width:33.3%;
+    border:2px solid #fff;
+    padding:10px;
+
+    background: #e8e8e8;
+    float:left;
+    color:#666;
+    font-size: 12px;
+    list-style: none;
+  }
+  /*box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素。
+    值：
+      content-box 宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。
+      border-box  宽度和高度分别决定了元素的边框盒。在宽度和高度之内绘制元素的内边距和边框。
+      inherit     规定应从父元素继承 box-sizing 属性的值。
+  */
+/*CSS3 box-sizing的认识 end*/
+/*CSS3 动画箭头 start*/
+  .arrow{
+    width: 20px;
+    height: 20px;
+    border: 3px solid transparent;
+    border-top: 3px solid #000;
+    border-left: 3px solid #000;
+    -webkit-transform: rotate(45deg);
+    -webkit-animation: arrow 1.5s infinite ease-in-out;
+  }
+  @keyframes arrow{
+    0%{
+      opacity: 0;
+      transform: rotate(45deg) translate(0,0px);
+    }
+    50%{
+      opacity: 1;
+      transform: rotate(45deg) translate(0,-5px);
+    }
+    100%{
+      opacity: 0;
+      transform: rotate(45deg) translate(0,-10px);
+    }
+  }
+/*CSS3 动画箭头 end*/
+</style>
+</head>
+<body>
+<!-- /*CSS3鼠标滑过渐变颜色旋转图标特效 start*/ -->
+<div class="section">
+  <div id="order_nav">
+    <ul class="list not_ie">
+      <li>
+        <div class="icon">福</div>
+      </li>
+      <li>
+        <div class="icon">禄</div>
+      </li>
+      <li>
+        <div class="icon">寿</div>
+      </li>
+    </ul>
+</div>
+</div>
+<script>
+  var orderNav = document.getElementById("order_nav");
+  var lis = orderNav.getElementsByTagName("li");
+  for(var i =0;i<lis.length;i++){
+     lis[i].onmouseover = function(){
+       this.className = "on";
+     };
+     lis[i].onmouseout = function(){
+       this.className = "";
+     }
+  }
+</script>
+<!-- /*CSS3鼠标滑过渐变颜色旋转图标特效 end*/ -->
+<!-- /*CSS3模拟复选框 start*/ -->
+<div class="section">
+  <label class="model-checkbox">
+    <input type="checkbox">
+    <div class="checkbox"></div>
+  </label>
+</div>
+<!-- /*CSS3模拟复选框 end*/ -->
+<!-- /*CSS3 box-sizing的认识 start*/ -->
+<div class="section">
+  <ul class="boxsizing">
+    <li><div class="content">我是内容</div></li>
+    <li><div class="content">我是内容</div></li>
+    <li><div class="content">我是内容</div></li>
+    <li><div class="content">我是内容</div></li>
+    <li><div class="content">我是内容</div></li>
+  </ul>
+</div>
+<!-- /*CSS3 box-sizing的认识 end*/ -->
+<!-- /*CSS3 动画箭头 start*/ -->
+<div class="section" style="padding-top:50px;">
+  <div class="arrow"></div>
+</div>
+<!-- /*CSS3 动画箭头 end*/ -->
+</body>
+</html>

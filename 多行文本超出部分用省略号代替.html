@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多行文本超出部分用省略号代替</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		.simple-line{
+			width:300px;
+			height:25px;
+
+			overflow: hidden;
+			text-overflow:ellipsis;
+			white-space:nowrap;
+
+			font-size: 12px;
+			line-height: 25px;
+			margin:100px;
+		}
+		.double-line{
+			width:300px;
+			height:50px;
+			overflow: hidden;
+			position: relative;
+			font-size: 12px;
+			line-height: 25px;
+			margin:100px;
+		}
+		.double-line:after{
+			content:"......";
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			padding:0 20px 1px 20px;
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="simple-line">
+		我是一个粉刷匠，粉刷本领强，我要把我的小房子刷的更漂亮，刷了房子又刷墙，刷子飞舞忙，哎呀!我的小房子变呀变了样！！！
+	</div>
+	<div class="double-line">
+		我是一个粉刷匠，粉刷本领强，我要把我的小房子刷的更漂亮，刷了房子又刷墙，刷子飞舞忙，哎呀!我的小房子变呀变了样！！！
+	</div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>纯css3旋转效果</title>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+			list-style: none;
+		}
+		li{
+			position: relative;
+			width:200px;
+			height: 200px;
+			float:left;
+			margin:100px;
+		}
+		li .list{
+			position: absolute;
+			transition-duration:.8s;
+			-webkit-transition-duration:.8s;
+			-o-transition-duration:.8s;
+			-ms-transition-duration:.8s;
+			-moz-transition-duration:.8s;
+		}
+		li .square{
+			transform:rotate(45deg);
+			-webkit-transform:rotate(45deg);
+			-o-transform:rotate(45deg);
+			-ms-transform:rotate(45deg);
+			-moz-transform:rotate(45deg);
+		}
+		li .frontface .square{
+			width: 198px;
+			height: 198px;
+			border:1px solid #f32f2f;
+			background: #fff;
+			color:#f00;
+		}
+		li .backface .square{
+			width: 200px;
+			height: 200px;
+			background: #f00;
+			color:#fff;
+		}
+		li .content{
+			transform:rotate(-45deg);
+			-webkit-transform:rotate(-45deg);
+			-o-transform:rotate(-45deg);
+			-ms-transform:rotate(-45deg);
+			-moz-transform:rotate(-45deg);
+		}
+		li .frontface{
+			z-index: 2;
+			transform:rotateY(0deg);
+			-webkit-transform:rotateY(0deg);
+			-o-transform:rotateY(0deg);
+			-ms-transform:rotateY(0deg);
+			-moz-transform:rotateY(0deg);
+			backface-visibility:hidden;
+			-webkit-backface-visibility:hidden;
+			-o-backface-visibility:hidden;
+			-ms-backface-visibility:hidden;
+			-moz-backface-visibility:hidden;
+		}
+		li .backface{
+			z-index: 1;
+			transform:rotateY(-180deg);
+			-webkit-transform:rotateY(-180deg);
+			-o-transform:rotateY(-180deg);
+			-ms-transform:rotateY(-180deg);
+			-moz-transform:rotateY(-180deg);
+		}
+		li:hover .frontface{
+			transform:rotateY(180deg);
+			-webkit-transform:rotateY(180deg);
+			-o-transform:rotateY(180deg);
+			-ms-transform:rotateY(180deg);
+			-moz-transform:rotateY(180deg);
+		}
+		li:hover .backface{
+			transform:rotateY(0deg);
+			-webkit-transform:rotateY(0deg);
+			-o-transform:rotateY(0deg);
+			-ms-transform:rotateY(0deg);
+			-moz-transform:rotateY(0deg);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+	<li class="viewport-flip">
+		<div class="flip">
+			<div class="backface list">
+				<div class="square">
+					<div class="content">
+					我是反面
+					</div>
+				</div>
+			</div>
+			<div class="frontface list">
+				<div class="square">
+					<div class="content">
+						正面
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li class="viewport-flip">
+		<div class="flip">
+			<div class="backface list">
+				<div class="square">
+					<div class="content">
+						我是反面
+					</div>
+				</div>
+			</div>
+			<div class="frontface list">
+				<div class="square">
+					<div class="content">
+						正面
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+	<li class="viewport-flip">
+		<div class="flip">
+			<div class="backface list">
+				<div class="square">
+					<div class="content">
+						我是反面
+					</div>
+				</div>
+			</div>
+			<div class="frontface list">
+				<div class="square">
+					<div class="content">
+						正面
+					</div>
+				</div>
+			</div>
+		</div>
+	</li>
+</ul>
+</body>
+</html>

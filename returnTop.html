@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scrolltop</title>
+	<meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<style>
+		*{
+			padding:0;
+			margin:0;
+		}
+		body{
+			background: #f7f7f7;
+			height:100%;
+		}
+		.icon{
+			display: none;
+			width:80px;
+			height: 20px;
+			background: #0ff;
+			color:#fff;
+			position: fixed;
+			bottom: 20px;
+			right: 20px;
+		}
+		.container{
+			height:3000px;
+			width:100%;
+			background: #ccc;
+		}
+		section{
+			height:480px;
+			border-bottom:1px solid #f00;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<section>
+			<input type="number">
+		</section>
+		<section></section>
+		<section></section>
+		<section></section>
+		<span id="returnTop" class="icon">returnTop</span>
+	</div>
+	<script type="text/javascript">
+		var iBase={
+	        setOpacity:function(ev,v){
+	        	ev.filters ? ev.style.filter='alpha(opacity='+v+')':ev.style.opacity=v/100;//设置透明度
+	        }        
+	    };
+		var returnTop = function(btnId){
+			this.winHeight=0;
+			this.btn = document.getElementById(btnId);
+			this.init();
+		};
+		returnTop.prototype={
+			init:function(){
+				var self=this;
+				this.winHeight = window.innerHeight;
+				window.onresize=function(){
+					self.winHeight = window.innerHeight;
+				}
+				var T;
+				window.onscroll = function() {
+					self.setStatus();
+					clearTimeout(T);
+					T = setTimeout(function() {
+						self.fadeOut(self.btn);
+					}, 2000);
+				}
+			},
+			setStatus:function(){
+				var scrolltop = document.body.scrollTop,
+					self = this;
+				if(scrolltop >= this.winHeight){
+					this.btn.style.display="inline-block";
+					iBase.setOpacity(this.btn, 100);
+				}else{
+					this.btn.style.display="none";
+				}
+			},
+		    fadeOut:function(elem, speed, opacity){
+		    	speed = speed || 20;
+		    	opacity = opacity || 0;
+		        //初始化透明度变化值为0
+		        var val = 100;
+		        //循环将透明值以5递减,即淡出效果
+		        (function(){
+		        	iBase.setOpacity(elem, val);
+		        	val -= 5;
+		        	if (val >= opacity) {
+		        		setTimeout(arguments.callee, speed);
+		        	}else if (val < 0) {
+		                //元素透明度为0后隐藏元素
+		                elem.style.display = 'none';
+		            }
+		        })();
+		    }
+		}
+
+		var action = new returnTop("returnTop");
+	</script>
+</body>
+</html>
